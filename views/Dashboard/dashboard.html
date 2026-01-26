@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+</head>
+<body class="dashboard">
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Bienvenido</h1>
+            <a href="../../src/Controllers/Dashboard/logout.php" class="logout-btn">Cerrar Sesión</a>
+        </div>
+        
+        <div class="dashboard-content">
+            <div class="profile-grid">
+                <div class="profile-section">
+                    <h3>Información de Perfil</h3>
+                    <div class="profile-info-item">
+                        <strong>Nombre Completo</strong>
+                        <p id="fullname">Cargando...</p>
+                    </div>
+                    <div class="profile-info-item">
+                        <strong>Email</strong>
+                        <p id="email">Cargando...</p>
+                    </div>
+                    <div class="profile-info-item">
+                        <strong>Usuario</strong>
+                        <p id="username">Cargando...</p>
+                    </div>
+                    <div class="profile-info-item">
+                        <strong>Género</strong>
+                        <p id="genre">Cargando...</p>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <a href="edit_profile.html">Editar Perfil</a>
+                        <a href="change_password.html">Cambiar Contraseña</a>
+                    </div>
+                </div>
+                
+                <div class="profile-section">
+                    <h3>Foto de Perfil</h3>
+                    <div class="profile-photo">
+                        <img id="profile-photo" src="" alt="Foto de perfil" style="display:none;">
+                        <div id="photo-placeholder" class="profile-photo-placeholder">
+                            Sin foto
+                        </div>
+                        <a href="upload_photo.html" style="display:block; margin-top: 10px;">Cambiar Foto</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-actions">
+                <div class="action-card">
+                    <div class="action-card-icon">📧</div>
+                    <div>Cambiar Email</div>
+                    <a href="change_email.html">Solicitar cambio</a>
+                </div>
+                <div class="action-card">
+                    <div class="action-card-icon">🔐</div>
+                    <div>Seguridad</div>
+                    <a href="change_password.html">Cambiar contraseña</a>
+                </div>
+                <div class="action-card">
+                    <div class="action-card-icon">👤</div>
+                    <div>Mi Perfil</div>
+                    <a href="edit_profile.html">Editar perfil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cargar datos del usuario
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../../src/Controllers/Dashboard/get_profile.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('fullname').textContent = data.name + ' ' + data.surname;
+                        document.getElementById('email').textContent = data.email;
+                        document.getElementById('username').textContent = data.username;
+                        document.getElementById('genre').textContent = data.genre || 'No especificado';
+                        
+                        if (data.photo) {
+                            document.getElementById('profile-photo').src = data.photo;
+                            document.getElementById('profile-photo').style.display = 'block';
+                            document.getElementById('photo-placeholder').style.display = 'none';
+                        }
+                    } else {
+                        window.location.href = '../../src/Controllers/Auth/login.html';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('fullname').textContent = 'Error al cargar';
+                });
+        });
+    </script>
+</body>
+</html>

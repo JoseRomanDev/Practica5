@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Manager</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .index-container {
+            text-align: center;
+            color: white;
+        }
+        .index-container h1 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .index-container p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .index-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .index-btn {
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        .index-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container index-container">
+        <h1>Email Manager</h1>
+        <p>Sistema de Gestión de Usuarios y Autenticación</p>
+        
+        <div class="index-buttons">
+            <a href="views/Auth/login.html" class="index-btn">Iniciar Sesión</a>
+            <a href="views/Auth/register.html" class="index-btn">Registrarse</a>
+        </div>
+    </div>
+</body>
+</html>

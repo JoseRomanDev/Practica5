@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Foto</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cambiar Foto de Perfil</h1>
+        
+        <div class="alert alert-info" style="margin-bottom: 20px;">
+            <strong>Información:</strong> Formatos permitidos: JPG, PNG, GIF, WebP. Tamaño máximo: 5MB
+        </div>
+        
+        <form action="../../src/Controllers/Dashboard/upload_photo.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="photo">Selecciona una foto</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+            </div>
+            
+            <button type="submit">Subir Foto</button>
+            <a href="dashboard.html" style="display:block; text-align:center; margin-top:15px;">Volver</a>
+        </form>
+    </div>
+</body>
+</html>
