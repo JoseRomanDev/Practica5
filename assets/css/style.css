@@ -1,4 +1,6 @@
 /* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,40 +8,66 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    padding: 20px;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .container {
-    background: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    padding: 48px 40px;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 0 1px rgba(255, 255, 255, 0.5) inset;
     width: 100%;
-    max-width: 400px;
+    max-width: 440px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 30px;
+    color: #1a202c;
+    margin-bottom: 32px;
     text-align: center;
-    font-size: 28px;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 h2 {
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 24px;
+    color: #2d3748;
+    margin-bottom: 24px;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
 h3 {
-    color: #555;
-    margin-bottom: 15px;
-    font-size: 18px;
+    color: #4a5568;
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 /* Forms */
@@ -49,15 +77,16 @@ form {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
-    color: #555;
+    margin-bottom: 8px;
+    color: #4a5568;
     font-weight: 600;
     font-size: 14px;
+    letter-spacing: 0.2px;
 }
 
 input[type="email"],
@@ -66,11 +95,14 @@ input[type="text"],
 input[type="file"],
 select {
     width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: border-color 0.3s;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: white;
+    color: #2d3748;
 }
 
 input[type="email"]:focus,
@@ -80,64 +112,85 @@ input[type="file"]:focus,
 select:focus {
     outline: none;
     border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    background: #ffffff;
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="text"]::placeholder {
+    color: #a0aec0;
 }
 
 /* Buttons */
 button {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 10px 15px;
+    padding: 14px 20px;
     border: none;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 10px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    margin-top: 10px;
+    transition: all 0.3s ease;
+    margin-top: 12px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    font-family: inherit;
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
 }
 
 button:active {
     transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
 }
 
 /* Messages */
 .alert {
-    padding: 12px 15px;
-    border-radius: 4px;
-    margin-bottom: 20px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin-bottom: 24px;
     font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .alert-error {
-    background: #ffe8e8;
-    color: #d32f2f;
-    border-left: 4px solid #d32f2f;
+    background: #fee;
+    color: #c53030;
+    border: 1px solid #fc8181;
 }
 
 .alert-success {
-    background: #e8f5e9;
-    color: #388e3c;
-    border-left: 4px solid #388e3c;
+    background: #f0fff4;
+    color: #2f855a;
+    border: 1px solid #9ae6b4;
 }
 
 .alert-info {
-    background: #e3f2fd;
-    color: #1976d2;
-    border-left: 4px solid #1976d2;
+    background: #ebf8ff;
+    color: #2c5282;
+    border: 1px solid #90cdf4;
 }
 
 /* Links */
 a {
     color: #667eea;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
     font-size: 14px;
+    font-weight: 500;
 }
 
 a:hover {
@@ -146,25 +199,60 @@ a:hover {
 }
 
 .links {
-    margin-top: 20px;
+    margin-top: 24px;
     text-align: center;
-    border-top: 1px solid #eee;
-    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 24px;
 }
 
 .links p {
-    margin: 10px 0;
+    margin: 12px 0;
+    color: #718096;
 }
 
 /* Responsive */
 @media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    
     .container {
-        padding: 20px;
+        padding: 32px 24px;
         max-width: 100%;
-        margin: 20px;
+        margin: 0;
+        border-radius: 16px;
     }
     
     h1 {
-        font-size: 24px;
+        font-size: 28px;
     }
+    
+    h2 {
+        font-size: 22px;
+    }
+}
+
+/* Additional Utilities */
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: #718096;
+}
+
+.mt-2 {
+    margin-top: 8px;
+}
+
+.mt-4 {
+    margin-top: 16px;
+}
+
+.mb-2 {
+    margin-bottom: 8px;
+}
+
+.mb-4 {
+    margin-bottom: 16px;
 }

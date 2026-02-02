@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../Connections/User.php';
 Session::init();
 
 if (!Session::isActive()) {
-    header('Location: /EmailPhp/Practica5/views/Auth/login.html');
+    header('Location: ../../views/Auth/login.html');
     exit;
 }
 
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['photo'])) {
             if (move_uploaded_file($file['tmp_name'], $filepath)) {
                 // Guardar solo el nombre del archivo, no la ruta completa
                 if (User::updatePhoto($_SESSION['user_id'], $filename)) {
-                    header("Location: /EmailPhp/Practica5/views/Dashboard/dashboard.html?success=" . urlencode('Foto actualizada correctamente'));
+                    header("Location: ../../views/Dashboard/dashboard.html?success=" . urlencode('Foto actualizada correctamente'));
                     exit;
                 } else {
                     unlink($filepath);
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['photo'])) {
 }
 
 if ($error) {
-    header("Location: /EmailPhp/Practica5/views/Dashboard/upload_photo.html?error=" . urlencode($error));
+    header("Location: ../../views/Dashboard/upload_photo.html?error=" . urlencode($error));
     exit;
 }
 ?>

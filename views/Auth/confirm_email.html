@@ -1,32 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmar Email</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        body {
+            background-image: url('../../public/ForgetemailPassword.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.85) 0%, rgba(42, 82, 152, 0.85) 50%, rgba(126, 34, 206, 0.85) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Confirmar Email</h1>
-        
+
         <?php
         $token = $_GET['token'] ?? '';
         
         if (empty($token)):
         ?>
-            <div class="alert alert-error">
-                <strong>Error:</strong> Token inválido o expirado
-            </div>
+        <div class="alert alert-error">
+            <strong>Error:</strong> Token inválido o expirado
+        </div>
         <?php else: ?>
-            <div class="alert alert-info">
-                <strong>Procesando...</strong> Confirmando tu nuevo email
-            </div>
+        <div class="alert alert-info">
+            <strong>Procesando...</strong> Confirmando tu nuevo email
+        </div>
         <?php endif; ?>
-        
+
         <div class="links">
             <p><a href="../../Dashboard/dashboard.html">Ir al dashboard</a></p>
         </div>
     </div>
 </body>
+
 </html>

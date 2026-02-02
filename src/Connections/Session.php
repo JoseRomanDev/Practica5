@@ -23,7 +23,7 @@ class Session {
             
             if ($now - $lastActivity > self::SESSION_TIMEOUT) {
                 self::destroy();
-                header("Location: /EmailPhp/Practica5/views/Auth/login.html?timeout=1");
+                header("Location: ../views/Auth/login.html?timeout=1");
                 exit;
             }
             

@@ -1,3 +1,6 @@
 2026-01-26 12:24:21 | TYPE: activation | TO: josemanuelroman02@gmail.com | SUBJECT: Activa tu cuenta | STATUS: SENT
 2026-01-26 12:41:51 | TYPE: change_email | TO: josemanuel.rnav@gmail.com | SUBJECT: Confirma tu nuevo email | STATUS: SENT_OK
 2026-01-26 12:47:02 | TYPE: change_email | TO: josemanuel.rnav@gmail.com | SUBJECT: Confirma tu nuevo email | STATUS: SENT_OK
+2026-02-02 18:21:29 | TYPE: activation | TO: josemanuelroman02@gmail.com | SUBJECT: Activa tu cuenta | STATUS: FAILED_MAIL_FUNCTION (NO_SENDMAIL_FROM)
+2026-02-02 18:59:25 | TYPE: activation | TO: josemanuel.rnav@gmail.com | SUBJECT: Activa tu cuenta | STATUS: FAILED_MAIL_FUNCTION (NO_SENDMAIL_FROM)
+2026-02-02 19:10:48 | TYPE: activation | TO: josemanuelroman02@gmail.com | SUBJECT: Activa tu cuenta | STATUS: FAILED_MAIL_FUNCTION

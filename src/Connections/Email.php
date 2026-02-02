@@ -6,7 +6,7 @@ class Email {
     private const LOG_FILE = __DIR__ . '/../../emails.log';
     
     public static function sendActivationEmail($userEmail, $username, $token) {
-        $activationLink = "http://localhost/EmailPhp/Practica5/src/Controllers/Auth/activate.php?token=" . $token;
+        $activationLink = "http://localhost/Practica5/src/Controllers/Auth/activate.php?token=" . $token;
         
         $subject = "Activa tu cuenta";
         $message = "Hola $username,\n\n";
@@ -19,7 +19,7 @@ class Email {
     }
     
     public static function sendResetPasswordEmail($userEmail, $username, $token) {
-        $resetLink = "http://localhost/EmailPhp/Practica5/src/Controllers/Auth/reset_password.php?token=" . $token;
+        $resetLink = "http://localhost/Practica5/src/Controllers/Auth/reset_password.php?token=" . $token;
         
         $subject = "Recupera tu contraseña";
         $message = "Hola $username,\n\n";
@@ -33,7 +33,7 @@ class Email {
     }
     
     public static function sendEmailChangeConfirmation($newEmail, $username, $token) {
-        $confirmLink = "http://localhost/EmailPhp/Practica5/src/Controllers/Auth/confirm_email.php?token=" . $token;
+        $confirmLink = "http://localhost/Practica5/src/Controllers/Auth/confirm_email.php?token=" . $token;
         
         $subject = "Confirma tu nuevo email";
         $message = "Hola $username,\n\n";

@@ -20,18 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             if ($actionResult['success']) {
                 Email::sendResetPasswordEmail($email, $userData['username'], $actionResult['token']);
-                header("Location: /EmailPhp/Practica5/views/Auth/login.html?success=" . urlencode('Si la cuenta existe, recibirás un email con instrucciones para recuperar tu contraseña.'));
+                header("Location: ../../views/Auth/login.html?success=" . urlencode('Si la cuenta existe, recibirás un email con instrucciones para recuperar tu contraseña.'));
                 exit;
             }
         } else {
-            header("Location: /EmailPhp/Practica5/views/Auth/login.html?success=" . urlencode('Si la cuenta existe, recibirás un email con instrucciones para recuperar tu contraseña.'));
+            header("Location: ../../views/Auth/login.html?success=" . urlencode('Si la cuenta existe, recibirás un email con instrucciones para recuperar tu contraseña.'));
             exit;
         }
     }
 }
 
 if ($message) {
-    header("Location: /EmailPhp/Practica5/views/Auth/forgot_password.html?error=" . urlencode($message));
+    header("Location: ../../views/Auth/forgot_password.html?error=" . urlencode($message));
     exit;
 }
 ?>

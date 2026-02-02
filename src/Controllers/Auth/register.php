@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             if ($actionResult['success']) {
                 Email::sendActivationEmail($email, $username, $actionResult['token']);
-                header("Location: /EmailPhp/Practica5/views/Auth/login.html?success=" . urlencode('Registro exitoso. Revisa tu email para activar tu cuenta.'));
+                header("Location: ../../views/Auth/login.html?success=" . urlencode('Registro exitoso. Revisa tu email para activar tu cuenta.'));
                 exit;
             } else {
                 $error = 'Error al generar token de activación';
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($error) {
-    header("Location: /EmailPhp/Practica5/views/Auth/register.html?error=" . urlencode($error));
+    header("Location: ../../views/Auth/register.html?error=" . urlencode($error));
     exit;
 }
 ?>

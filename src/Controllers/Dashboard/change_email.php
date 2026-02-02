@@ -8,7 +8,7 @@ require_once __DIR__ . '/../../Connections/Email.php';
 Session::init();
 
 if (!Session::isActive()) {
-    header('Location: /EmailPhp/Practica5/views/Auth/login.html');
+    header('Location: ../../views/Auth/login.html');
     exit;
 }
 
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if ($actionResult['success']) {
             Email::sendEmailChangeConfirmation($newEmail, $userData['username'], $actionResult['token']);
-            header("Location: /EmailPhp/Practica5/views/Dashboard/dashboard.html?success=" . urlencode('Revisa tu nuevo email para confirmar el cambio'));
+            header("Location: ../../views/Dashboard/dashboard.html?success=" . urlencode('Revisa tu nuevo email para confirmar el cambio'));
             exit;
         } else {
             $error = 'Error al generar token de confirmación';
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($error) {
-    header("Location: /EmailPhp/Practica5/views/Dashboard/change_email.html?error=" . urlencode($error));
+    header("Location: ../../views/Dashboard/change_email.html?error=" . urlencode($error));
     exit;
 }
 ?>

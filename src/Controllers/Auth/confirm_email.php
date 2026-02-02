@@ -22,7 +22,7 @@ if (empty($token)) {
         $error = 'Tipo de acción inválido';
     } else {
         if (User::updateEmail($actionData['user_id'], $actionData['new_email']) && Action::executeAction($actionData['id'])) {
-            header("Location: /EmailPhp/Practica5/views/Dashboard/dashboard.html?success=" . urlencode('Email actualizado correctamente'));
+            header("Location: ../../views/Dashboard/dashboard.html?success=" . urlencode('Email actualizado correctamente'));
             exit;
         } else {
             $error = 'Error al actualizar el email';
@@ -31,7 +31,7 @@ if (empty($token)) {
 }
 
 if ($error) {
-    header("Location: /EmailPhp/Practica5/views/Auth/confirm_email.html?token=" . urlencode($token) . "&error=" . urlencode($error));
+    header("Location: ../../views/Auth/confirm_email.html?token=" . urlencode($token) . "&error=" . urlencode($error));
     exit;
 }
 ?>

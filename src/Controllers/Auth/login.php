@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = 'Email o contraseña incorrectos';
         } else {
             Session::setUser($userData['id'], $userData['username'], $userData['email']);
-            header('Location: /EmailPhp/Practica5/views/Dashboard/dashboard.html');
+            header('Location: ../../views/Dashboard/dashboard.html');
             exit;
         }
     }
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Si hay error, redirigir con mensaje
 if ($error) {
-    header("Location: /EmailPhp/Practica5/views/Auth/login.html?error=" . urlencode($error));
+    header("Location: ../../views/Auth/login.html?error=" . urlencode($error));
     exit;
 }
 ?>

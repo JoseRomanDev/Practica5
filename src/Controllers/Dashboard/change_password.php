@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../Connections/User.php';
 Session::init();
 
 if (!Session::isActive()) {
-    header('Location: /EmailPhp/Practica5/views/Auth/login.html');
+    header('Location: ../../views/Auth/login.html');
     exit;
 }
 
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = 'Contraseña actual incorrecta';
         } else {
             if (User::updatePassword($_SESSION['user_id'], $newPassword)) {
-                header("Location: /EmailPhp/Practica5/views/Dashboard/dashboard.html?success=" . urlencode('Contraseña actualizada correctamente'));
+                header("Location: ../../views/Dashboard/dashboard.html?success=" . urlencode('Contraseña actualizada correctamente'));
                 exit;
             } else {
                 $error = 'Error al actualizar la contraseña';
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($error) {
-    header("Location: /EmailPhp/Practica5/views/Dashboard/change_password.html?error=" . urlencode($error));
+    header("Location: ../../views/Dashboard/change_password.html?error=" . urlencode($error));
     exit;
 }
 ?>

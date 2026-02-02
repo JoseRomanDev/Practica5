@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($error)) {
         $error = 'La contraseña debe tener al menos 8 caracteres';
     } else {
         if (User::updatePassword($actionData['user_id'], $password) && Action::executeAction($actionData['id'])) {
-            header("Location: /EmailPhp/Practica5/views/Auth/login.html?success=" . urlencode('Contraseña actualizada correctamente. Ya puedes iniciar sesión.'));
+            header("Location: ../../views/Auth/login.html?success=" . urlencode('Contraseña actualizada correctamente. Ya puedes iniciar sesión.'));
             exit;
         } else {
             $error = 'Error al actualizar la contraseña';
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($error)) {
 }
 
 if ($error) {
-    header("Location: /EmailPhp/Practica5/views/Auth/reset_password.html?token=" . urlencode($token) . "&error=" . urlencode($error));
+    header("Location: ../../views/Auth/reset_password.html?token=" . urlencode($token) . "&error=" . urlencode($error));
     exit;
 }
 ?>

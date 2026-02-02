@@ -22,7 +22,7 @@ if (empty($token)) {
         $error = 'Tipo de acción inválido';
     } else {
         if (User::activateAccount($actionData['user_id']) && Action::executeAction($actionData['id'])) {
-            header("Location: /EmailPhp/Practica5/views/Auth/login.html?success=" . urlencode('Cuenta activada correctamente. Ahora puedes iniciar sesión.'));
+            header("Location: ../../views/Auth/login.html?success=" . urlencode('Cuenta activada correctamente. Ahora puedes iniciar sesión.'));
             exit;
         } else {
             $error = 'Error al activar la cuenta';
@@ -31,7 +31,7 @@ if (empty($token)) {
 }
 
 if ($error) {
-    header("Location: /EmailPhp/Practica5/views/Auth/activate.html?token=" . urlencode($token) . "&error=" . urlencode($error));
+    header("Location: ../../views/Auth/activate.html?token=" . urlencode($token) . "&error=" . urlencode($error));
     exit;
 }
 ?>
